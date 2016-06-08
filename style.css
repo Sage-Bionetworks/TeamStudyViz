@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+}
+html {
+    font-family: "Helvetica Neue", sans-serif;
+}
+body {
+    opacity: 0.0;
+    transition: opacity .5s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;
+    max-width: 600px;
+    margin: 0 auto;
+}
+h1 {
+    font-size: 1.8rem;
+    margin: 1.5rem 1rem;
+}
+h2 {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    margin-bottom: .3rem;
+    text-align: center;
+}
+.content {
+    padding: 1rem 1rem 4rem 1rem;
+}
+#legend {
+    font-size: 1.5rem;
+    display: inline-block;
+    text-align: left;
+}
+    #legend > div {
+        padding: .3rem .6rem;
+    }
+    #legend .legendText {
+        display: inline-block;
+        padding-left: .8rem;
+        line-height:1.2;
+    }
+    #legend .legendColor {
+        display: inline-block;
+        width: 1.5rem;
+        border-radius: .3rem;
+        line-height:1;
+    }
+
+/* Chartist */
+.ct-chart {
+    max-width: 90%;
+    margin: 0 auto;
+}
+.ct-slice-pie {
+    stroke: white;
+    stroke-width: .2rem;
+}
+.ct-label {
+    fill: white!important;
+    font-size: 1.4rem!important;
+}
+.ct-series-a .ct-slice-pie {
+    fill: #14697D!important;
+}
+.ct-series-b .ct-slice-pie {
+    fill: #AC4039!important;
+}
+.ct-series-c .ct-slice-pie {
+    fill: #5B964C!important;
+}
+.ct-series-d .ct-slice-pie {
+    fill: #795C1F!important;
+}
+.ct-series-e .ct-slice-pie {
+    fill: #59988B!important;
+}
+.ct-series-f .ct-slice-pie {
+    fill: #86A4B1!important;
+}
+.ct-series-g .ct-slice-pie {
+    fill: #697885!important;
+}
