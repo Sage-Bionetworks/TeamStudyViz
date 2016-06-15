@@ -44,6 +44,12 @@ h2 {
         border-radius: .3rem;
         line-height:1;
     }
+#priorWeek {
+    display:block;
+    text-align:center;
+    margin-top:2rem;
+    color:#3eabc0;
+}
 
 /* Chartist */
 .ct-chart {
@@ -78,4 +84,7 @@ h2 {
 }
 .ct-series-g .ct-slice-pie {
     fill: #697885!important;
+}
+.ct-series-h .ct-slice-pie {
+    fill: salmon!important;
 }

@@ -1,0 +1,13 @@
+{
+    "question": "Have you ever been told you snore loudly?",
+    "football_player": [
+        {"answer":"Yes", "percent": 58},
+        {"answer":"No", "percent": 31},
+        {"answer":"Unsure", "percent": 11}
+    ],
+    "test_user": [
+        {"answer":"Yes", "percent": 59},
+        {"answer":"No", "percent": 41},
+        {"answer":"Unsure", "percent": 0}
+    ]
+}

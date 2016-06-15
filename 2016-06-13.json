@@ -1,0 +1,23 @@
+{
+    "question": "What is your favorite movie genre?",
+    "football_player": [
+        {"answer":"Action", "percent": 31},
+        {"answer":"Comedy", "percent": 23},
+        {"answer":"Drama", "percent": 31},
+        {"answer":"Family", "percent": 0},
+        {"answer":"Fantasy", "percent": 3},
+        {"answer":"Horror", "percent": 6},
+        {"answer":"Romance", "percent": 0},
+        {"answer":"Science Fiction", "percent": 6}
+    ],
+    "test_user": [
+        {"answer":"Action", "percent": 18},
+        {"answer":"Comedy", "percent": 36},
+        {"answer":"Drama", "percent": 9},
+        {"answer":"Family", "percent": 9},
+        {"answer":"Fantasy", "percent": 0},
+        {"answer":"Horror", "percent": 5},
+        {"answer":"Romance", "percent": 5},
+        {"answer":"Science Fiction", "percent": 18}
+    ]
+}

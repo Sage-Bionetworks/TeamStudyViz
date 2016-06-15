@@ -1,0 +1,21 @@
+{
+    "question": "In a typical week, how many alcoholic beverages do you consume?",
+    "football_player": [
+        {"answer":"None", "percent": 23},
+        {"answer":"Less than 1", "percent": 16},
+        {"answer":"2--3", "percent": 35},
+        {"answer":"4--5", "percent": 4},
+        {"answer":"6--7", "percent": 6},
+        {"answer":"7--8", "percent": 0},
+        {"answer":"9 or more", "percent": 16}
+    ],
+    "test_user": [
+        {"answer":"None", "percent": 16},
+        {"answer":"Less than 1", "percent": 16},
+        {"answer":"2--3", "percent": 12},
+        {"answer":"4--5", "percent": 17},
+        {"answer":"6--7", "percent": 9},
+        {"answer":"7--8", "percent": 13},
+        {"answer":"9 or more", "percent": 17}
+    ]
+}

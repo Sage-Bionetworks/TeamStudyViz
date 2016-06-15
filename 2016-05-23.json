@@ -1,0 +1,19 @@
+{
+    "question": "Jim Zorn wants to know: which Northwest band you would want (or have wanted) to be a member of?",
+    "football_player": [
+        {"answer":"Nirvana", "percent": 28},
+        {"answer":"Pearl Jam", "percent": 10},
+        {"answer":"Maclemore with Ryan Lewis (make it a trio)", "percent": 10},
+        {"answer":"Jimmy Hendrix Experience", "percent": 28},
+        {"answer":"Foo Fighters", "percent": 21},
+        {"answer":"Shabazz Palace", "percent": 3}
+    ],
+    "test_user": [
+        {"answer":"Nirvana", "percent": 20},
+        {"answer":"Pearl Jam", "percent": 20},
+        {"answer":"Maclemore with Ryan Lewis (make it a trio)", "percent": 15},
+        {"answer":"Jimmy Hendrix Experience", "percent": 15},
+        {"answer":"Foo Fighters", "percent": 30},
+        {"answer":"Shabazz Palace", "percent": 0}
+    ]
+}
