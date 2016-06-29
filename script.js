@@ -7,15 +7,14 @@ var priorWeekLink = document.getElementById("priorWeek");
 var COLORS = ['#14697D', '#AC4039', '#5B964C', '#795C1F', '#59988B', '#86A4B1', '#697885', 'salmon'];
 var ONE_WEEK = 1000*60*60*24*7;
 var ID = 'weekly-survey';
-var weekIndex = 0;
+var weekQuery = [];
+var EARLIEST_TIMESTAMP = 1458432000000;
 
 // Generates the query strings to get each monday report going back either 5 weeks
 // or to the date of release. Not yet sure how state will be maintained for this.
 // Probably just won't unload the page, and smooth scroll it back to the top.
-
-var weekQuery = [];
-
-for (var i=0, date = new Date(); i < 3; i++) {
+var date = new Date();
+while(date.getTime() > EARLIEST_TIMESTAMP) {
     date = getLastMonday(date);
     weekQuery.push(date.toISOString().split("T")[0]);
     date.setHours(-24*2);
@@ -35,23 +34,19 @@ function handleAbort(event) {
     alert(event.target.statusText);
     console.error(event);
 }
-function handleLoad(event) {
-    if (event.target.status !== 200) {
-        handleAbort(event);
-    }
-    var json = JSON.parse(event.target.response);
-    var data = JSON.parse(json.items[0].data);
+function handleLoad(json) {
+    var data = json.items[0].data;
     data.date = json.items[0].date;
     render(data);
 }
 function render(json) {
     questionHeader.textContent = json.question;
-    json.test_user.forEach(pushZero);
+    json.control.forEach(pushZero);
     json.football_player.forEach(pushZero);
     legend.innerHTML = "";
     json.football_player.forEach(addLegendEntry);
     createPieChart('#player_pie_chart', processAnswers(json.football_player));
-    createPieChart('#public_pie_chart', processAnswers(json.test_user));
+    createPieChart('#public_pie_chart', processAnswers(json.control));
     revealPage();
 }
 function createPieChart(target, dataset) {
@@ -127,27 +122,39 @@ function getOffset(monString, hours) {
     return d.toISOString().split("T")[0];
 }
 function priorWeek() {
-    if (weekIndex < 2) {
-        weekIndex++;
+    if (weekQuery.length === 1) {
         display(weekQuery.sessionToken);
-    }
-    if (weekIndex === 2) {
         priorWeekLink.style.display = 'none';
+    } else if (weekQuery.length > 1) {
+        display(weekQuery.sessionToken);
     }
 }
 window.display = function(sessionToken) {
     weekQuery.sessionToken = sessionToken;
-    var url = 'https://webservices.sagebridge.org/v3/reports/' + ID + weekQuery[weekIndex];
+    var url = 'https://webservices.sagebridge.org/v3/reports/' + ID + weekQuery.shift();
 
+    console.log("requesting week", url);
     var request = new XMLHttpRequest();
     request.open('GET', url);
     request.setRequestHeader("Bridge-Session", sessionToken);
     request.setRequestHeader("Content-Type", "application/json");
     request.addEventListener("abort", handleAbort);
-    request.addEventListener("load", handleLoad);
+    request.addEventListener("load", locateFirstWeek);
     request.send();
 }
 
+function locateFirstWeek(response) {
+    if (event.target.status !== 200) {
+        handleAbort(event);
+    }
+    var json = JSON.parse(event.target.response);
+    if (json.items && json.items.length > 0) {
+        handleLoad(json);
+    } else {
+        console.log("skipping this week... no data");
+        display(weekQuery.sessionToken);
+    }
+}
 window.onorientationchange = adjustScale;
 window.addEventListener("resize", debounce(adjustScale, 100, false), true);
 adjustScale();
