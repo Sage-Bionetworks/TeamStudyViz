@@ -25,30 +25,32 @@ h2 {
 .content {
     padding: 1rem 1rem 4rem 1rem;
 }
-#legend {
-    font-size: 1.5rem;
-    display: inline-block;
-    text-align: left;
+#legend-container {
+    margin: 0 auto;
 }
-    #legend > div {
-        padding: .3rem .6rem;
-    }
-    #legend .legendText {
-        display: inline-block;
-        padding-left: .8rem;
-        line-height:1.2;
-    }
+#legend-container table {
+    margin: 1.5rem auto;
+}
     #legend .legendColor {
-        display: inline-block;
-        width: 1.5rem;
         border-radius: .3rem;
         line-height:1;
+    }
+        #legend .legendColor span {
+            display: inline-block;
+            width: 1.5rem;
+        }
+    #legend .legendText {
+        padding-left: .8rem;
+        line-height:1.2;
+        text-align: left;
+        font-size: 18px;
     }
 #priorWeek {
     display:block;
     text-align:center;
     margin-top:2rem;
     color:#3eabc0;
+    font-size: 18px;
 }
 
 /* Chartist */

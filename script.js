@@ -78,19 +78,24 @@ function pushZero(answer) {
     }
 }
 function addLegendEntry(answer, index) {
+    var tr = document.createElement("tr");
+
+    var colorCell = document.createElement("td");
+    colorCell.className = "legendColor";
+
+    var textCell = document.createElement("td");
+    textCell.className = "legendText";
+
+    tr.appendChild(colorCell);
+    tr.appendChild(textCell);
+    legend.appendChild(tr);
+
     var spanColor = document.createElement("span");
-    spanColor.className = "legendColor";
     spanColor.style.backgroundColor = COLORS[index];
     spanColor.innerHTML = "&#160;";
+    colorCell.appendChild(spanColor);
 
-    var spanText = document.createElement("span");
-    spanText.className = "legendText";
-    spanText.textContent = answer.answer;
-
-    var div = document.createElement("div");
-    div.appendChild(spanColor);
-    div.appendChild(spanText);
-    legend.appendChild(div);
+    textCell.textContent = answer.answer;
 }
 //https://davidwalsh.name/javascript-debounce-function
 function debounce(func, wait) {
@@ -121,14 +126,19 @@ function getOffset(monString, hours) {
     d.setHours(d.getHours()+hours);
     return d.toISOString().split("T")[0];
 }
-function priorWeek() {
+function priorWeek(event) {
+    event.preventDefault();
+    event.stopPropagation();
     if (weekQuery.length === 1) {
         display(weekQuery.sessionToken);
         priorWeekLink.style.display = 'none';
     } else if (weekQuery.length > 1) {
         display(weekQuery.sessionToken);
     }
+    window.scrollTo(0,0);
 }
+document.getElementById("priorWeek").addEventListener('click', priorWeek, false);
+
 window.display = function(sessionToken) {
     weekQuery.sessionToken = sessionToken;
     var url = 'https://webservices.sagebridge.org/v3/reports/' + ID + weekQuery.shift();
